@@ -6,29 +6,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   <link rel="stylesheet" type="text/css" href="dist/style.css" />
 </head>
 
 <body>
   <header class="main-header">
-    <img class="main-header__hero-image" src="" alt="">
+    <img class="main-header__hero-image" src="assets/images/header.jpg" alt="">
     <div class="main-header__content-wrapper">
       <div class="user-info">
-        <img class="user-info__image" src="" alt="">
+        <img class="user-info__image" src="assets/images/userpicture.png" alt="">
         <div class="user-info__content">
-          <h1 class="user-info__title"></h1>
+          <h1 class="user-info__title">Andrew Sokolovsky</h1>
           <ul class="user-info__list">
-            <li class="user-info__list-item characteristic">
-              <span class="characteristic__icon--position"></span>
+            <li class="user-info__list-item user-info__list-item--position characteristic">
+              <span class="characteristic__icon characteristic__icon--position"></span>
               <span class="characteristic__title">Manager</span>
             </li>
-            <li class="user-info__list-item characteristic">
-              <span class="characteristic__icon--location"></span>
+            <li class="user-info__list-item user-info__list-item--location characteristic">
+              <span class="characteristic__icon characteristic__icon--location"></span>
               <span class="characteristic__title">Lives in Kiev</span>
             </li>
-            <li class="user-info__list-item characteristic">
-              <span class="characteristic__icon--contacts"></span>
+            <li class="user-info__list-item user-info__list-item--contacts characteristic">
+              <span class="characteristic__icon characteristic__icon--contacts"></span>
               <span class="characteristic__title">66 have you in circles</span>
             </li>
           </ul>
@@ -38,17 +39,17 @@
   </header>
   <main>
     <nav class="sections-nav">
-      <ul class="sections-nav__list nav-list">
+      <ul class="nav-list sections-nav__nav-list">
         <li class="nav-list__item nav-list-item--about nav-list-item--active">About</li>
         <li class="nav-list__item nav-list-item--photos">Photos</li>
       </ul>
     </nav>
     </div>
     <section class="about">
-      <div class="about__contacts info-container">
-        <div class="container-header">
-          <div class="info-container__bar info-container__bar--light-blue"></div>
-          <h2 class="info-container__title">People</h2>
+      <div class="info-container about__contacts">
+        <div class="container-header info-container__header">
+          <div class="container-header__bar container-header__bar--light-blue"></div>
+          <h2 class="container-header__title">People</h2>
         </div>
         <div class="textual-item">
           <h3 class="textual-item__title">In your circles</h3>
@@ -82,12 +83,32 @@
           </ul>
         </div>
         <div class="container-footer">
-          <button class="container-footer__button edit-button button"></button>
+          <button class="button button--action container-footer__button"></button>
         </div>
       </div>
-      <div class="about__work info-container">
-        <div class="info-container__header">
-          <div class="info-container__bar info-container__bar--cyan"></div>
+      <div class="info-container about__story">
+        <div class="container-header info-container__header">
+          <div class="container-header__bar container-header__bar--cyan"></div>
+          <h2 class="info-container__title">Story</h2>
+        </div>
+        <div class="textual-item">
+          <h3 class="textual-item__title">Tagline</h3>
+          <p class="textual-item__content">A brief description of you</p>
+        </div>
+        <div class="textual-item">
+          <h3 class="textual-item__title">Introduction</h3>
+          <p class="textual-item__content">Put a little bit about yourself here so people know they’ve found the
+            corrent Adi.</p>
+        </div>
+        <div class="textual-item">
+          <h3 class="textual-item__title">Bragging rights</h3>
+          <p class="textual-item__content">Examples: Survived secondary school, have 3 kids, etc.</p>
+        </div>
+      </div>
+      </div>
+      <div class="info-container about__work">
+        <div class="container-header info-container__header">
+          <div class="container-header__bar container-header__bar--cyan"></div>
           <h2 class="info-container__title">Work</h2>
         </div>
         <div class="textual-item">
@@ -96,23 +117,52 @@
         </div>
         <div class="textual-item">
           <h3 class="textual-item__title">Introduction</h3>
-          <p class="textual-item__content">Put a little bit about yourself here so people know they’ve found the corrent Adi.</p>
+          <p class="textual-item__content">Put a little bit about yourself here so people know they’ve found the
+            corrent Adi.</p>
         </div>
         <div class="textual-item">
           <h3 class="textual-item__title">Bragging rights</h3>
           <p class="textual-item__content">Examples: Survived secondary school, have 3 kids, etc.</p>
         </div>
       </div>
-      <div class="info-container">
-        <div class="info-container__header">
-          <div class="info-container__bar "></div>
-          <h2 class="info-container__title"></h2>
+      <div class="info-container about__education">
+        <div class="container-header info-container__header">
+          <div class="container-header__bar container-header__bar--light-blue"></div>
+          <h2 class="container-header__title">Edocation</h2>
         </div>
-      </div>
-      <div class="info-container">
-        <div class="info-container__header">
-          <div class="info-container__bar "></div>
-          <h2 class="info-container__title"></h2>
+        <div class="textual-item">
+          <h3 class="textual-item__title">In your circles</h3>
+          <p class="textual-item__content">You havent added anyone or you’re not displaying this.</p>
+        </div>
+        <div class="contacts-photo">
+          <h3 class="contacts-photo__title">Have you in circles</h3>
+          <button class="contacts-photo__expand">Have you in circles</button>
+          <ul class="contacts-photo__list contacts-list">
+            <li class="contacts-list__item">
+              <img src="" alt="contacts" class="contacts-list__image">
+            </li>
+            <li class="contacts-list__item">
+              <img src="" alt="contacts" class="contacts-list__image">
+            </li>
+            <li class="contacts-list__item">
+              <img src="" alt="contacts" class="contacts-list__image">
+            </li>
+            <li class="contacts-list__item">
+              <img src="" alt="contacts" class="contacts-list__image">
+            </li>
+            <li class="contacts-list__item">
+              <img src="" alt="contacts" class="contacts-list__image">
+            </li>
+            <li class="contacts-list__item">
+              <img src="" alt="contacts" class="contacts-list__image">
+            </li>
+            <li class="contacts-list__item">
+              <img src="" alt="contacts" class="contacts-list__image">
+            </li>
+          </ul>
+        </div>
+        <div class="container-footer">
+          <button class="button button--action container-footer__button"></button>
         </div>
       </div>
     </section>
