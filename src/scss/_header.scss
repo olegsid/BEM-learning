@@ -34,8 +34,8 @@
 
   &__title {
     margin: 8px 0;
-    color: #002b41;
-    font-family: Raleway, "sans-serif";
+    color: $primaryFontColor;
+    font-family: $primaryfontStack;
     font-weight: bold;
     letter-spacing: -0.1px;
     font-size: 36px;
@@ -58,7 +58,7 @@
   &__list-item {
     padding-right: 30px;
     padding-left: 27px;
-    border-right: 1px solid #002b41;
+    border-right: 1px solid $utilityElementsColor;
   }
   &__list-item--position {
     padding-left: 0px;
@@ -75,7 +75,7 @@
 .characteristic {
   display: flex;
   color: #969696;
-  font-family: Raleway, "sans-serif";
+  font-family: $primaryfontStack;
   font-size: 16px;
 
   &__title {
