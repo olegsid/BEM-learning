@@ -1,0 +1,112 @@
+.about {
+  max-width: $commonMaxWidth;
+  width: 100%;
+  align-self: center;
+  margin-left: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 52px;
+  justify-content: space-between;
+}
+
+.info-container {
+  position: relative;
+  width: 100%;
+  max-width: 590px;
+  overflow: hidden;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.container-header {
+  display: flex;
+
+  &__title {
+    margin: 32px 0 10px;
+    color: $primaryFontColor;
+    font-family: $textFontStack;
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: 1.5px;
+  }
+
+  &__bar {
+    border-radius: inherit;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 5px;
+    border-radius: inherit;
+    background-color: #5fc0e7;
+  }
+}
+
+.textual-item {
+  display: flex;
+  flex-direction: column;
+  color: $primaryFontColor;
+  font-family: $primaryfontStack;
+  letter-spacing: -0.3px;
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__content {
+    letter-spacing: 0.93px;
+    font-weight: 400;
+    margin: 5px 0 0 0;
+  }
+}
+.contacts-photo {
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 29px;
+  }
+
+  &__title {
+    margin: 0;
+    color: $primaryFontColor;
+    font-family: $primaryfontStack;
+    letter-spacing: -0.3px;
+  }
+  &__expand {
+    font-weight: 300;
+    padding: 0;
+    letter-spacing: 0.1px;
+  }
+  &__list {
+    margin: 15px 0 0 0;
+  }
+}
+
+.contacts-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: space-between;
+}
+.button {
+  outline: none;
+  background: none;
+  border: none;
+  font-family: $primaryfontStack;
+  color: #5fc0e7;
+
+  &--action {
+      padding-left:15px; 
+  }
+}
+
+.container-footer {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

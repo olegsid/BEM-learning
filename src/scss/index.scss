@@ -2,4 +2,14 @@
 @import "fonts";
 @import "reset";
 @import "header";
-@import "sections-nav"
+@import "sections-nav";
+@import "about";
+
+body{
+  background-color: #f5fcff;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
