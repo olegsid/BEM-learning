@@ -100,9 +100,26 @@ body {
 
 .nav-list {
   display: flex;
-  margin: 0;
+  width: 100%;
+  height: inherit;
+  max-width: 1200px;
+  margin: 0 0 0 17px;
   padding: 0;
+  box-sizing: content-box;
   list-style: none;
-  align-items: center; }
+  align-items: flex-start; }
   .nav-list__item {
-    padding: 0 80px; }
+    display: flex;
+    height: 100%;
+    padding: 0 80px;
+    height: inherit; }
+  .nav-list__link-text {
+    align-self: center;
+    font-family: "Bebas Neue", "sans-serif";
+    font-size: 40px;
+    color: #002b41;
+    line-height: 40px;
+    margin: 36px auto auto auto; }
+  .nav-list__item--active {
+    border-bottom: 2px solid #5fc0e7;
+    background-color: #f1f1f3; }
