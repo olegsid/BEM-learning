@@ -112,7 +112,8 @@ body {
     display: flex;
     height: 100%;
     padding: 0 80px;
-    height: inherit; }
+    height: inherit;
+    cursor: pointer; }
   .nav-list__link-text {
     align-self: center;
     font-family: "Bebas Neue", "sans-serif";
