@@ -4,9 +4,16 @@
   align-self: center;
   margin-left: 15px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   padding-top: 52px;
-  justify-content: space-between;
+  max-height: 1000px;
+  // justify-content: space-between;
+
+  &__story,
+  &__education {
+    align-self: flex-end;
+  }
 }
 
 .info-container {
@@ -19,17 +26,18 @@
   margin-bottom: 30px;
   background-color: #fff;
   border-radius: 15px;
+  box-shadow: 0px 10px 15px 0 rgba(0, 0, 0, 0.1);
 }
 
 .container-header {
   display: flex;
 
   &__title {
-    margin: 32px 0 10px;
+    margin: 36px 0 0 0;
     color: $primaryFontColor;
     font-family: $textFontStack;
     font-size: 30px;
-    line-height: 30px;
+    line-height: 0.8;
     letter-spacing: 1.5px;
   }
 
@@ -41,7 +49,20 @@
     left: 0;
     height: 5px;
     border-radius: inherit;
+  }
+  &__bar--cyan {
+    background-color: #fa5770;
+  }
+
+  &__bar--light-blue {
     background-color: #5fc0e7;
+  }
+
+  &__bar--violet{
+    background-color: #7c4098;
+  }
+  &__bar--light-orange{
+    background-color: #f26632;
   }
 }
 
@@ -50,14 +71,16 @@
   flex-direction: column;
   color: $primaryFontColor;
   font-family: $primaryfontStack;
-  letter-spacing: -0.3px;
+  font-weight: bold;
+  letter-spacing: -0.4px;
+  margin-top: 30px;
 
   &__title {
-    margin-bottom: 0;
+    margin: 0;
   }
 
   &__content {
-    letter-spacing: 0.93px;
+    letter-spacing: 0.95px;
     font-weight: 400;
     margin: 5px 0 0 0;
   }
@@ -76,15 +99,15 @@
     margin: 0;
     color: $primaryFontColor;
     font-family: $primaryfontStack;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.4px;
   }
   &__expand {
     font-weight: 300;
     padding: 0;
-    letter-spacing: 0.1px;
+    letter-spacing: -0.2px;
   }
   &__list {
-    margin: 15px 0 0 0;
+    margin: 16px 0 0 0;
   }
 }
 
@@ -99,14 +122,30 @@
   background: none;
   border: none;
   font-family: $primaryfontStack;
+  font-size: 14px;
+  line-height: 14px;
   color: #5fc0e7;
 
   &--action {
-      padding-left:15px; 
+    position: relative;
+  }
+
+  &--action::before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    left: -2px;
+    width: 15px;
+    height: 14px;
+    background-image: url(../../assets/images/edit.svg);
   }
 }
 
 .container-footer {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 26px;
+  margin-bottom: 26px;
+  &__button {
+    padding-left: 3px;
+  }
 }
