@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/index.scss */ \"./src/scss/index.scss\");\n/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_index_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/index.scss */ \"./src/scss/index.scss\");\n/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_index_scss__WEBPACK_IMPORTED_MODULE_0__);\n\nconst linkSelector = \"nav-list__item\";\nconst tabContentSelector = \"tab\";\nconst links = [...document.getElementsByClassName(linkSelector)];\nconst tabContent = [...document.getElementsByClassName(tabContentSelector)];\nlinks.forEach(link => link.addEventListener(\"click\", function (event) {\n  const tabName = event.target.dataset.tab;\n  links.forEach(item => setActiveClass(item, `${linkSelector}--${tabName}`, `${linkSelector}--active`));\n  tabContent.forEach(item => setActiveClass(item, tabName, `${tabContentSelector}--active`));\n}));\n\nfunction setActiveClass(item, searchClassName, activeClassName) {\n  item.classList.contains(searchClassName) ? item.classList.add(activeClassName) : item.classList.remove(activeClassName);\n}\n\n//# sourceURL=webpack:///./src/js/index.js?");
 
 /***/ }),
 

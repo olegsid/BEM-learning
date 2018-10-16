@@ -4,10 +4,12 @@
 @import "header";
 @import "sections-nav";
 @import "about";
+@import "tab";
 
 body{
   background-color: #f5fcff;
 }
+
 .content{
   display: flex;
   flex-direction: column;

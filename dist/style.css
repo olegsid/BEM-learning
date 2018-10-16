@@ -242,6 +242,11 @@ body {
   .container-footer__button {
     padding-left: 3px; }
 
+.tab {
+  display: none; }
+  .tab--active {
+    display: flex; }
+
 body {
   background-color: #f5fcff; }
 
