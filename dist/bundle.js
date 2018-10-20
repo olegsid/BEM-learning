@@ -86,6 +86,29 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/galleryItems.json":
+/*!*******************************!*\
+  !*** ./src/galleryItems.json ***!
+  \*******************************/
+/*! exports provided: images, default */
+/***/ (function(module) {
+
+eval("module.exports = {\"images\":[{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]}]};\n\n//# sourceURL=webpack:///./src/galleryItems.json?");
+
+/***/ }),
+
+/***/ "./src/js/Gallery.js":
+/*!***************************!*\
+  !*** ./src/js/Gallery.js ***!
+  \***************************/
+/*! exports provided: Gallery */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Gallery\", function() { return Gallery; });\n/* harmony import */ var _galleryItems__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../galleryItems */ \"./src/galleryItems.json\");\nvar _galleryItems__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../galleryItems */ \"./src/galleryItems.json\", 1);\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ \"./src/js/utils.js\");\n\n\nclass Gallery {\n  constructor(galleryClassName) {\n    this.items = [];\n    this.$gallery = document.getElementsByClassName(galleryClassName)[0];\n    this.$itemTemplate = document.getElementById(\"galleryItemTemplate\");\n  }\n\n  loadImages() {\n    this.items = _galleryItems__WEBPACK_IMPORTED_MODULE_0__.images;\n    return this;\n  }\n\n  renderImages() {\n    let $galleryItems = document.createDocumentFragment();\n    this.items.forEach((item, index) => {\n      let $item = this.$itemTemplate.cloneNode(true);\n      let $thumb = $item.content.querySelector(\"img\");\n      let $li = $item.content.querySelector(\"li\");\n      $thumb.setAttribute(\"src\", item.thumb);\n      $li.dataset.imageId = index;\n      $li.classList.add(\"js\");\n      $galleryItems.appendChild($item.content);\n    });\n    this.$gallery.appendChild($galleryItems);\n    return this;\n  }\n\n  setEvents() {\n    this.$gallery.addEventListener(\"click\", event => {\n      const image = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[\"getRootElement\"])(event.target, \"js\");\n\n      if (image) {\n        console.log(image.dataset.imageId);\n      }\n    });\n  }\n\n}\n\n//# sourceURL=webpack:///./src/js/Gallery.js?");
+
+/***/ }),
+
 /***/ "./src/js/index.js":
 /*!*************************!*\
   !*** ./src/js/index.js ***!
@@ -94,7 +117,19 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/index.scss */ \"./src/scss/index.scss\");\n/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_index_scss__WEBPACK_IMPORTED_MODULE_0__);\n\nconst linkSelector = \"nav-list__item\";\nconst tabContentSelector = \"tab\";\nconst links = [...document.getElementsByClassName(linkSelector)];\nconst tabContent = [...document.getElementsByClassName(tabContentSelector)];\nlinks.forEach(link => link.addEventListener(\"click\", function (event) {\n  const tabName = event.target.dataset.tab;\n  links.forEach(item => setActiveClass(item, `${linkSelector}--${tabName}`, `${linkSelector}--active`));\n  tabContent.forEach(item => setActiveClass(item, tabName, `${tabContentSelector}--active`));\n}));\n\nfunction setActiveClass(item, searchClassName, activeClassName) {\n  item.classList.contains(searchClassName) ? item.classList.add(activeClassName) : item.classList.remove(activeClassName);\n}\n\n//# sourceURL=webpack:///./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/index.scss */ \"./src/scss/index.scss\");\n/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_index_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ \"./src/js/utils.js\");\n/* harmony import */ var _Gallery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Gallery */ \"./src/js/Gallery.js\");\n\n\n\nconst linkSelector = \"nav-list__item\";\nconst tabContentSelector = \"tab\";\nconst links = [...document.getElementsByClassName(linkSelector)];\nconst tabContent = [...document.getElementsByClassName(tabContentSelector)];\nlinks.forEach(link => link.addEventListener(\"click\", function (event) {\n  const rootElement = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[\"getRootElement\"])(event.target, linkSelector);\n  const tabName = rootElement.dataset.tab;\n  links.forEach(item => setActiveClass(item, `${linkSelector}--${tabName}`, `${linkSelector}--active`));\n  tabContent.forEach(item => setActiveClass(item, tabName, `${tabContentSelector}--active`));\n}));\n\nfunction setActiveClass(item, searchClassName, activeClassName) {\n  item.classList.contains(searchClassName) ? item.classList.add(activeClassName) : item.classList.remove(activeClassName);\n}\n\nconst imageGallery = new _Gallery__WEBPACK_IMPORTED_MODULE_2__[\"Gallery\"](\"gallery-list\");\nimageGallery.loadImages().renderImages().setEvents();\n\n//# sourceURL=webpack:///./src/js/index.js?");
+
+/***/ }),
+
+/***/ "./src/js/utils.js":
+/*!*************************!*\
+  !*** ./src/js/utils.js ***!
+  \*************************/
+/*! exports provided: getRootElement */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getRootElement\", function() { return getRootElement; });\nfunction getRootElement(elem, className) {\n  if (elem == document) return null;else return elem.classList.contains(className) ? elem : getRootElement(elem.parentElement, className);\n}\n\n\n\n//# sourceURL=webpack:///./src/js/utils.js?");
 
 /***/ }),
 
