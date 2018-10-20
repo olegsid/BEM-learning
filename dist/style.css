@@ -255,3 +255,74 @@ body {
   display: none; }
   .tab--active {
     display: flex; }
+
+.user-photos {
+  display: flex;
+  justify-content: center; }
+  .user-photos__content-wrapper {
+    display: flex;
+    flex-direction: column; }
+  .user-photos__filters-list {
+    margin: 26px 0 0 0; }
+  .user-photos__gallery {
+    margin: 30px 0 0 0; }
+
+.styled-container {
+  background-color: #fff;
+  box-shadow: 0px 6px 15px 0 rgba(0, 0, 0, 0.1); }
+
+.filters-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 15px 25px;
+  border-radius: 30px;
+  list-style: none; }
+  .filters-list__caption {
+    height: 30px;
+    line-height: 34px;
+    font-family: Raleway;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal; }
+  .filters-list__item {
+    height: 30px;
+    margin-left: 29px;
+    padding: 0 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 30px;
+    line-height: 34px;
+    font-family: Raleway, "sans-serif";
+    font-size: 16px;
+    font-weight: normal; }
+  .filters-list__item-selected {
+    color: white;
+    background-color: #5fc0e7; }
+  .filters-list__item--all {
+    margin-left: 29px; }
+  .filters-list__item--architecture {
+    margin-left: 33px; }
+  .filters-list__item--images {
+    margin-left: 44px; }
+  .filters-list__item--nature {
+    margin-left: 36px; }
+  .filters-list__item--photography {
+    margin-left: 36px; }
+  .filters-list__item--videos {
+    margin-left: 44px; }
+
+.gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 15px;
+  list-style: none;
+  justify-content: space-around; }
+  .gallery-list__item {
+    width: 273px;
+    height: 170px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    background-color: #5fc0e7; }
