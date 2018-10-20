@@ -1,11 +1,13 @@
 import galleryItems from "../galleryItems";
-import {getRootElement} from "./utils";
+import { getRootElement } from "./utils";
 
 export class Gallery {
   constructor(galleryClassName) {
     this.items = [];
     this.$gallery = document.getElementsByClassName(galleryClassName)[0];
     this.$itemTemplate = document.getElementById("galleryItemTemplate");
+
+    this.popUp = new PopUp(".modal", ".popup__close-button");
   }
 
   loadImages() {
@@ -32,12 +34,39 @@ export class Gallery {
     return this;
   }
 
-  setEvents() {
+  initEventListeners() {
     this.$gallery.addEventListener("click", event => {
       const image = getRootElement(event.target, "js");
       if (image) {
-        console.log(image.dataset.imageId);
+        const imageId = image.dataset.imageId;
+        const imageSrc = this.items[imageId].src;
+        this.popUp.showPopup(imageSrc);
       }
-    });
+    }); 
+  }
+}
+
+class PopUp {
+  constructor(modalSelector, closeButtonSelector) {
+    this.$modal = document.querySelector(modalSelector);
+    this.$closeButton = this.$modal.querySelector(closeButtonSelector);
+    this.$image = this.$modal.querySelector("img");
+
+    this.init();
+  }
+
+  init() {
+    this.$closeButton.addEventListener("click", e => this.closePopUp());
+    this.closePopUp();
+  }
+
+  closePopUp() {
+    this.$modal.style = "display:none";
+  }
+
+  showPopup(ImageSrc) {
+    this.$modal.style = "";
+    this.$image.setAttribute("src", ImageSrc);
+
   }
 }

@@ -37,4 +37,4 @@ const imageGallery = new Gallery("gallery-list");
 imageGallery
   .loadImages()
   .renderImages()
-  .setEvents();
+  .initEventListeners();
