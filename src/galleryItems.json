@@ -54,6 +54,11 @@
         "thumb": "./assets/images/gallery/thumb.jpg",
         "src": "./assets/images/gallery/thumb.jpg",
         "tags": []
+    },
+    {
+        "thumb": "./assets/images/gallery/thumb.jpg",
+        "src": "./assets/images/gallery/thumb.jpg",
+        "tags": []
     }
 ]
 }
