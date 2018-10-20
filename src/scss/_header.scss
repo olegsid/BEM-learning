@@ -13,15 +13,6 @@
     max-width: 100%;
     height: auto;
   }
-
-  &__content-wrapper {
-    position: relative;
-    display: flex;
-    align-content: center;
-    width: 100%;
-    max-width: $commonMaxWidth;
-    margin-left: 14px;
-  }
 }
 
 .user-info {

@@ -1,0 +1,17 @@
+body {
+  background-color: #f5fcff;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.content-wrapper {
+  position: relative;
+  display: flex;
+  align-content: center;
+  width: 100%;
+  max-width: $commonMaxWidth;
+  margin-left: 14px;
+}

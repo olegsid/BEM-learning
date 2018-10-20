@@ -1,17 +1,8 @@
 @import "variables";
+@import "common";
 @import "fonts";
 @import "reset";
 @import "header";
 @import "sections-nav";
 @import "about";
 @import "tab";
-
-body{
-  background-color: #f5fcff;
-}
-
-.content{
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-}
