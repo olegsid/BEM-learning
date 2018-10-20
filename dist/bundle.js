@@ -129,7 +129,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scs
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getRootElement\", function() { return getRootElement; });\nfunction getRootElement(elem, className) {\n  if (elem == document) return null;else return elem.classList.contains(className) ? elem : getRootElement(elem.parentElement, className);\n}\n\n\n\n//# sourceURL=webpack:///./src/js/utils.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getRootElement\", function() { return getRootElement; });\nfunction getRootElement(elem, className) {\n  if (elem == null) return null;else return elem.classList.contains(className) ? elem : getRootElement(elem.parentElement, className);\n}\n\n\n\n//# sourceURL=webpack:///./src/js/utils.js?");
 
 /***/ }),
 

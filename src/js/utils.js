@@ -1,5 +1,5 @@
 function getRootElement(elem, className) {
-  if (elem == document) return null;
+  if (elem == null) return null;
   else
     return elem.classList.contains(className)
       ? elem
