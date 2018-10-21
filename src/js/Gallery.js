@@ -65,7 +65,7 @@ class PopUp {
   }
 
   showPopup(ImageSrc) {
-    this.$modal.style = "";
+    this.$modal.style = "display:flex";
     this.$image.setAttribute("src", ImageSrc);
 
   }

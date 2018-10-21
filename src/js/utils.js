@@ -6,4 +6,10 @@ function getRootElement(elem, className) {
       : getRootElement(elem.parentElement, className);
 }
 
-export { getRootElement };
+function toggleActiveClass(item, searchClassName, activeClassName) {
+  item.classList.contains(searchClassName)
+    ? item.classList.add(activeClassName)
+    : item.classList.remove(activeClassName);
+}
+
+export { getRootElement, toggleActiveClass };

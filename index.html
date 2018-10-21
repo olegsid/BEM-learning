@@ -39,15 +39,15 @@
   <main class="content">
     <nav class="sections-nav">
       <ul class="nav-list sections-nav__nav-list">
-        <li class="nav-list__item nav-list__item--about " data-tab="about">
+        <li class="nav-list__item nav-list__item--about nav-list__item--active" data-tab="about">
           <span class="nav-list__link-text ">About</span>
         </li>
-        <li class="nav-list__item nav-list__item--user-photos nav-list__item--active" data-tab="user-photos">
+        <li class="nav-list__item nav-list__item--user-photos" data-tab="user-photos">
           <span class="nav-list__link-text">Photos</span>
         </li>
       </ul>
     </nav>
-    <section class="about tab">
+    <section class="about tab tab--active">
       <div class="info-container about__contacts">
         <div class="container-header">
           <div class="container-header__bar container-header__bar--light-blue"></div>
@@ -177,7 +177,7 @@
         </div>
       </div>
     </section>
-    <section class="user-photos tab tab--active">
+    <section class="user-photos tab">
       <div class="content-wrapper user-photos__content-wrapper">
         <ul class="filters-list styled-container user-photos__filters-list">
           <li class="filters-list__caption">Show me:</li>
