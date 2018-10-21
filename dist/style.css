@@ -47,7 +47,10 @@ body {
   display: flex;
   align-items: center; }
   .user-info__image {
-    position: absolute; }
+    position: absolute;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.2); }
   .user-info__title {
     margin: 8px 0;
     color: #002b41;
@@ -361,7 +364,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   min-height: 100%;
   background-color: rgba(49, 85, 103, 0.8); }
   .modal__popup {
