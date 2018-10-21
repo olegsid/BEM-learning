@@ -1,5 +1,6 @@
 import galleryItems from "../galleryItems";
 import { getRootElement } from "./utils";
+import PopUp from "./Popup";
 
 export class Gallery {
   constructor(galleryClassName) {
@@ -43,30 +44,5 @@ export class Gallery {
         this.popUp.showPopup(imageSrc);
       }
     }); 
-  }
-}
-
-class PopUp {
-  constructor(modalSelector, closeButtonSelector) {
-    this.$modal = document.querySelector(modalSelector);
-    this.$closeButton = this.$modal.querySelector(closeButtonSelector);
-    this.$image = this.$modal.querySelector("img");
-
-    this.init();
-  }
-
-  init() {
-    this.$closeButton.addEventListener("click", e => this.closePopUp());
-    this.closePopUp();
-  }
-
-  closePopUp() {
-    this.$modal.style = "display:none";
-  }
-
-  showPopup(ImageSrc) {
-    this.$modal.style = "display:flex";
-    this.$image.setAttribute("src", ImageSrc);
-
   }
 }
