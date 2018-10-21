@@ -5,6 +5,9 @@ body {
 * {
   box-sizing: border-box; }
 
+html {
+  height: 101%; }
+
 body {
   background-color: #f5fcff;
   position: relative; }
