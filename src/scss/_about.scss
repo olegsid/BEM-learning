@@ -8,7 +8,6 @@
   flex-wrap: wrap;
   padding-top: 52px;
   max-height: 1000px;
-  // justify-content: space-between;
 
   &__story,
   &__education {
@@ -50,6 +49,7 @@
     height: 5px;
     border-radius: inherit;
   }
+  
   &__bar--cyan {
     background-color: #fa5770;
   }
