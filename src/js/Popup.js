@@ -18,12 +18,14 @@ export default class PopUp {
     this.$modal.style = "display:none";
   }
 
-  showPopup(imageSrc) {
+  showPopup() {
     this.$modal.style = "display:flex";
-    this.$image.setAttribute("src", ANIMATED_LOADER);
-
-    const imageLoader = new Image();
-    imageLoader.src = imageSrc;
-    imageLoader.onload = () => this.$image.setAttribute("src", imageLoader.src);
+  }
+  
+  loadImage(imageSrc){
+      this.$image.setAttribute("src", ANIMATED_LOADER);
+      const imageLoader = new Image();
+      imageLoader.src = imageSrc;
+      imageLoader.onload = () => this.$image.setAttribute("src", imageLoader.src);
   }
 }

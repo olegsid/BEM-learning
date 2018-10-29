@@ -41,7 +41,9 @@ export class Gallery {
       if (image) {
         const imageId = image.dataset.imageId;
         const imageSrc = this.items[imageId].src;
-        this.popUp.showPopup(imageSrc);
+
+        this.popUp.loadImage(imageSrc);
+        this.popUp.showPopup();
       }
     }); 
   }
