@@ -16,8 +16,10 @@
   position: relative;
 
   &__image-wrapper {
+    min-width: 320px;
     max-width: $commonMaxWidth;
     width: inherit;
+    min-height: 240px;
     max-height: 640px;
     height: inherit;
     display: flex;
