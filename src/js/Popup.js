@@ -1,4 +1,4 @@
-const ANIMATED_LOADER = "../assets/images/loader.svg";
+const ANIMATED_LOADER = "./../assets/images/loader.svg";
 
 export default class PopUp {
   constructor(modalSelector, closeButtonSelector) {
