@@ -1,4 +1,4 @@
-const ANIMATED_LOADER = "./../assets/images/loader.svg";
+const ANIMATED_LOADER = "./assets/images/loader.svg";
 
 export default class PopUp {
   constructor(modalSelector, closeButtonSelector) {
@@ -21,11 +21,11 @@ export default class PopUp {
   showPopup() {
     this.$modal.style = "display:flex";
   }
-  
-  loadImage(imageSrc){
-      this.$image.setAttribute("src", ANIMATED_LOADER);
-      const imageLoader = new Image();
-      imageLoader.src = imageSrc;
-      imageLoader.onload = () => this.$image.setAttribute("src", imageLoader.src);
+
+  loadImage(imageSrc) {
+    this.$image.setAttribute("src", ANIMATED_LOADER);
+    const imageLoader = new Image();
+    imageLoader.src = imageSrc;
+    imageLoader.onload = () => this.$image.setAttribute("src", imageLoader.src);
   }
 }
