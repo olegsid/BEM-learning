@@ -1,15 +1,20 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: { main: "./src/js/index.js" },
+  entry: {
+    main: "./src/js/index.js"
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js"
   },
   module: {
-    rules: [
-      {
+    rules: [{
+        test: /\.pug$/,
+        use: ["pug-loader"]
+      }, {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -36,5 +41,12 @@ module.exports = {
       }
     ]
   },
-  plugins: [new ExtractTextPlugin({ filename: "style.css" })]
+  plugins: [
+    new ExtractTextPlugin({
+      filename: "style.css"
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/index.pug"
+    })
+  ]
 };
