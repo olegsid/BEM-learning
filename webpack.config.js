@@ -46,7 +46,7 @@ module.exports = {
       filename: "style.css"
     }),
     new HtmlWebpackPlugin({
-      template: "./src/index.pug"
+      template: "./src/index.pug"     
     })
   ]
 };
