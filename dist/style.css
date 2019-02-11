@@ -298,7 +298,7 @@ body {
     font-family: Raleway, "sans-serif";
     font-size: 16px;
     font-weight: normal; }
-  .filters-list__item-selected {
+  .filters-list__item--selected {
     color: white;
     background-color: #5fc0e7; }
   .filters-list__item--all {
