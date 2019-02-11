@@ -1,0 +1,27 @@
+-const userImages = ["user1.jpg","user2.jpg","user3.jpg","user4.jpg","user5.jpg","user1.jpg"]
+-const pathToAssets = "assets/images/"
+
+section(class="about tab tab-active")
+  div(class="info-container about__contacts")
+    div(class="container-header")
+      div(class="container-header__bar container-header__bar--light-blue")
+      h2(class="container-header__title") People
+    div(class="textual-item")
+      h3(class="textual-item__title") In your circles
+      p(class="textual-item__content") You havent added anyone or you’re not displaying this.
+    div(class="contacts-photo")
+      div(class="contacts-photo__container")
+        h3(class="contacts-photo__title") Have you in circles
+        button(class="button contacts-photo__expand") View all (66)
+    ul(class="contacts-photo__list contacts-list")
+        -for(let i; i< userImages.length; i++){
+          li(class="contacts-list__item")
+            img(class="contacts-list__image" src=`${pathToAssets+userImages[i]}`, alt="contacts")
+        -}
+    div(class="container-footer")
+      button(class="container-footer__button button button--action ") Edit
+    div(class="info-container about__work")
+      div(class="container-header")
+        div(class="container-header__bar container-header__bar--violet")
+        h2(class="container-header__title")
+      

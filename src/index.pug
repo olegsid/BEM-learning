@@ -1,8 +1,12 @@
+include ../node_modules/bemto.pug/bemto.pug
 doctype html
 html
   head
     include views/head.pug
     title Page Title
+
   body
-    header(class="main-header")
-    img(class="main-header__hero-image" src="assets/images/header.jpg")
+    include views/header.pug
+    main.content
+      include views/section-nav.pug
+      include views/about.pug
