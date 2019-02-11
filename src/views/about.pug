@@ -1,6 +1,6 @@
 - const userImages = ["user1.jpg","user2.jpg","user3.jpg","user4.jpg","user5.jpg","user1.jpg"]
-- const pathToAssets = "../assets/images/"
-- const workTextuslItems = [
+- const pathToAssets = "assets/images/"
+- const workTextualItems = [
 -{
 - title:"Occupation",
 - content:"Online projects"
@@ -14,7 +14,7 @@
 - content:"Examples: Survived secondary school, have 3 kids, etc."
 -}
 -]
-- const storyTextuslItems = [
+- const storyTextualItems = [
 -{
 - title:"Tagline",
 - content:"A brief description of you"
@@ -53,10 +53,10 @@ section(class="about tab tab--active")
     div(class="container-header")
       div(class="container-header__bar container-header__bar--violet")
       h2(class="container-header__title") Work
-    -for(let i = 0; i<workTextuslItems.length; i++){
+    -for(let i = 0; i<storyTextualItems.length; i++){
       div(class="textual-item") 
-        div(class="textual-item__titile") #{workTextuslItems[i].title}
-        div(class="textual-item__content") #{workTextuslItems[i].content}
+        div(class="textual-item__titile") #{storyTextualItems[i].title}
+        div(class="textual-item__content") #{storyTextualItems[i].content}
     -}
     div(class="container-footer")
       button(class="button button--action container-footer__button") Edit
@@ -64,10 +64,10 @@ section(class="about tab tab--active")
   div(class="info-container about_story")
     div(class="container-header__bar container-header__bar--cyan")
     h2(class="container-header__title") Story
-    -for(let i = 0; i<workTextuslItems.length; i++){
+    -for(let i = 0; i<workTextualItems.length; i++){
       div(class="textual-item") 
-        div(class="textual-item__titile") #{workTextuslItems[i].title}
-        div(class="textual-item__content") #{workTextuslItems[i].content}
+        div(class="textual-item__titile") #{workTextualItems[i].title}
+        div(class="textual-item__content") #{workTextualItems[i].content}
     -}
     div(class="container-footer")
         button(class="button button--action container-footer__button") Edit

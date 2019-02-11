@@ -11,7 +11,7 @@ links.forEach(link =>
     const tabClassName = tabLinkRootElement.dataset.tab;
     const tabLinkActiveClassName = `${tabLinkSelector}--active`;
     const tabLinkNamedSelector = `${tabLinkSelector}--${tabClassName}`;
-    
+
     links.forEach(tabLink =>
       toggleActiveClass(tabLink, tabLinkNamedSelector, tabLinkActiveClassName)
     );

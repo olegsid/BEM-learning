@@ -1,9 +1,19 @@
-- const tabs = [{name:"about",content:"About",isActive:true},{name:"photos",content:"Photos",isActive:false}]
+- const tabs = [
+- {
+-  name: "about",
+-  content: "About",
+-  isActive: true
+- },
+- {
+-  name: "photos",
+-  content: "Photos",
+-  isActive: false
+-}]
 
 nav(class="sections-nav")
   ul(class="sections-nav__nav-list nav-list")
       - for(let i = 0; i < tabs.length; i++){
       - let activeStatus = tabs[i].isActive ? " nav-list__item--active": '';
-        li(class=`nav-list__item nav-list__item--${tabs[i].name}${activeStatus}`)
+        li(class=`nav-list__item nav-list__item--${tabs[i].name}${activeStatus}` data-tab=`${tabs[i].name}`)
           span(class="nav-list__link-text") #{tabs[i].content}
       - }
