@@ -11,10 +11,12 @@ module.exports = {
     filename: "bundle.js"
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.pug$/,
-        use: ["pug-loader"]
-      }, {
+        use: ["pug-loader?pretty=true"]
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -46,7 +48,9 @@ module.exports = {
       filename: "style.css"
     }),
     new HtmlWebpackPlugin({
-      template: "./src/index.pug"     
+      template: "./src/index.pug",
+      filename: "../index.html",
+      minify: false
     })
   ]
 };
