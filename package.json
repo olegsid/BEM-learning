@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bemto.pug": "^2.1.0",
+    "html-beautify-webpack-plugin": "^1.0.5",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
     "svg-url-loader": "^2.3.2",

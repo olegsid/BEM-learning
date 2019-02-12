@@ -1,6 +1,7 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -59,6 +60,19 @@ module.exports = {
       template: "./src/index.pug",
       filename: "../index.html",
       minify: false
-    })
+    }),
+    new HtmlBeautifyPlugin({
+      config: {
+          html: {
+              end_with_newline: true,
+              indent_size: 2,
+              indent_with_tabs: true,
+              indent_inner_html: true,
+              preserve_newlines: true,
+              unformatted: ['p', 'i', 'b']
+          }
+      },
+      replace: [ ' type="text/javascript"' ]
+  })
   ]
 };
