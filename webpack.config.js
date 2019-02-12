@@ -11,6 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js"
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -46,10 +47,10 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: 'file-loader',
-          },
-        ],
-      },
+            loader: "file-loader"
+          }
+        ]
+      }
     ]
   },
   plugins: [
@@ -63,20 +64,20 @@ module.exports = {
     }),
     new HtmlBeautifyPlugin({
       config: {
-          html: {
-              end_with_newline: true,
-              indent_size: 2,
-              indent_with_tabs: false,
-              indent_inner_html: true,
-              preserve_newlines: true,
-              inline: ['i', 'b'],
-              unformatted: ['i', 'b'],
-              wrap_line_length: 120,
-              indent_inner_html: true,
-              indent_scripts: "separate"
-          }
+        html: {
+          end_with_newline: true,
+          indent_size: 2,
+          indent_with_tabs: false,
+          indent_inner_html: true,
+          preserve_newlines: true,
+          inline: ["i", "b"],
+          unformatted: ["i", "b"],
+          wrap_line_length: 120,
+          indent_inner_html: true,
+          indent_scripts: "separate"
+        }
       },
-      replace: [ ' type="text/javascript"' ]
-  })
+      replace: [' type="text/javascript"']
+    })
   ]
 };

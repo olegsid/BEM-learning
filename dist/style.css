@@ -355,9 +355,7 @@ body {
     opacity: 0.8; }
 
 .tab {
-  display: none; }
-  .tab--active {
-    display: flex; }
+  display: flex; }
 
 .modal {
   display: none;
@@ -450,3 +448,5 @@ body {
 @media (max-height: 670px) {
   .popup__image-wrapper {
     max-height: calc(100vh - 54px); } }
+
+/*# sourceMappingURL=style.css.map*/

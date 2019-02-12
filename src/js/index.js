@@ -1,10 +1,13 @@
 import "../scss/index.scss";
-import * as tabs  from "./tabs"
+import { Tabs } from "./Tabs"
 import { Gallery } from "./Gallery";
 
+const tabs = new Tabs();  
 const imageGallery = new Gallery("gallery-list");
 
 imageGallery
   .loadImages()
   .renderImages()
   .initEventListeners();
+
+

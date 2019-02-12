@@ -93,7 +93,7 @@
 /*! exports provided: images, default */
 /***/ (function(module) {
 
-eval("module.exports = {\"images\":[{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/thumb.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/big.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/big.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/big.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/big.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/big.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/big.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/big.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/big.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/big.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/big.jpg\",\"tags\":[]},{\"thumb\":\"./assets/images/gallery/thumb.jpg\",\"src\":\"./assets/images/gallery/big.jpg\",\"tags\":[]}]};\n\n//# sourceURL=webpack:///./src/galleryItems.json?");
+module.exports = {"images":[{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/thumb.jpg","tags":[]},{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/big.jpg","tags":[]},{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/big.jpg","tags":[]},{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/big.jpg","tags":[]},{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/big.jpg","tags":[]},{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/big.jpg","tags":[]},{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/big.jpg","tags":[]},{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/big.jpg","tags":[]},{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/big.jpg","tags":[]},{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/big.jpg","tags":[]},{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/big.jpg","tags":[]},{"thumb":"./assets/images/gallery/thumb.jpg","src":"./assets/images/gallery/big.jpg","tags":[]}]};
 
 /***/ }),
 
@@ -105,7 +105,57 @@ eval("module.exports = {\"images\":[{\"thumb\":\"./assets/images/gallery/thumb.j
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Gallery\", function() { return Gallery; });\n/* harmony import */ var _galleryItems__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../galleryItems */ \"./src/galleryItems.json\");\nvar _galleryItems__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../galleryItems */ \"./src/galleryItems.json\", 1);\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ \"./src/js/utils.js\");\n/* harmony import */ var _Popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Popup */ \"./src/js/Popup.js\");\n\n\n\nclass Gallery {\n  constructor(galleryClassName) {\n    this.items = [];\n    this.$gallery = document.getElementsByClassName(galleryClassName)[0];\n    this.$itemTemplate = document.getElementById(\"galleryItemTemplate\");\n    this.popUp = new _Popup__WEBPACK_IMPORTED_MODULE_2__[\"default\"](\".modal\", \".popup__close-button\");\n  }\n\n  loadImages() {\n    this.items = _galleryItems__WEBPACK_IMPORTED_MODULE_0__.images;\n    return this;\n  }\n\n  renderImages() {\n    let $galleryItems = document.createDocumentFragment();\n    this.items.forEach((item, index) => {\n      let $item = this.$itemTemplate.cloneNode(true);\n      let $thumb = $item.content.querySelector(\"img\");\n      let $li = $item.content.querySelector(\"li\");\n      $thumb.setAttribute(\"src\", item.thumb);\n      $li.dataset.imageId = index;\n      $li.classList.add(\"js\");\n      $galleryItems.appendChild($item.content);\n    });\n    this.$gallery.appendChild($galleryItems);\n    return this;\n  }\n\n  initEventListeners() {\n    this.$gallery.addEventListener(\"click\", event => {\n      const image = Object(_utils__WEBPACK_IMPORTED_MODULE_1__[\"getRootElement\"])(event.target, \"js\");\n\n      if (image) {\n        const imageId = image.dataset.imageId;\n        const imageSrc = this.items[imageId].src;\n        this.popUp.loadImage(imageSrc);\n        this.popUp.showPopup();\n      }\n    });\n  }\n\n}\n\n//# sourceURL=webpack:///./src/js/Gallery.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Gallery", function() { return Gallery; });
+/* harmony import */ var _galleryItems__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../galleryItems */ "./src/galleryItems.json");
+var _galleryItems__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../galleryItems */ "./src/galleryItems.json", 1);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./src/js/utils.js");
+/* harmony import */ var _Popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Popup */ "./src/js/Popup.js");
+
+
+
+class Gallery {
+  constructor(galleryClassName) {
+    this.items = [];
+    this.$gallery = document.getElementsByClassName(galleryClassName)[0];
+    this.$itemTemplate = document.getElementById("galleryItemTemplate");
+    this.popUp = new _Popup__WEBPACK_IMPORTED_MODULE_2__["default"](".modal", ".popup__close-button");
+  }
+
+  loadImages() {
+    this.items = _galleryItems__WEBPACK_IMPORTED_MODULE_0__.images;
+    return this;
+  }
+
+  renderImages() {
+    let $galleryItems = document.createDocumentFragment();
+    this.items.forEach((item, index) => {
+      let $item = this.$itemTemplate.cloneNode(true);
+      let $thumb = $item.content.querySelector("img");
+      let $li = $item.content.querySelector("li");
+      $thumb.setAttribute("src", item.thumb);
+      $li.dataset.imageId = index;
+      $li.classList.add("js");
+      $galleryItems.appendChild($item.content);
+    });
+    this.$gallery.appendChild($galleryItems);
+    return this;
+  }
+
+  initEventListeners() {
+    this.$gallery.addEventListener("click", event => {
+      const image = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["getRootElement"])(event.target, "js");
+
+      if (image) {
+        const imageId = image.dataset.imageId;
+        const imageSrc = this.items[imageId].src;
+        this.popUp.loadImage(imageSrc);
+        this.popUp.showPopup();
+      }
+    });
+  }
+
+}
 
 /***/ }),
 
@@ -117,7 +167,134 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return PopUp; });\nconst ANIMATED_LOADER = \"./assets/images/loader.svg\";\nclass PopUp {\n  constructor(modalSelector, closeButtonSelector) {\n    this.$modal = document.querySelector(modalSelector);\n    this.$closeButton = this.$modal.querySelector(closeButtonSelector);\n    this.$image = this.$modal.querySelector(\"img\");\n    this.init();\n  }\n\n  init() {\n    this.$closeButton.addEventListener(\"click\", e => this.closePopUp());\n    this.closePopUp();\n  }\n\n  closePopUp() {\n    this.$modal.style = \"display:none\";\n  }\n\n  showPopup() {\n    this.$modal.style = \"display:flex\";\n  }\n\n  loadImage(imageSrc) {\n    this.$image.setAttribute(\"src\", ANIMATED_LOADER);\n    const imageLoader = new Image();\n    imageLoader.src = imageSrc;\n\n    imageLoader.onload = () => this.$image.setAttribute(\"src\", imageLoader.src);\n  }\n\n}\n\n//# sourceURL=webpack:///./src/js/Popup.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PopUp; });
+const ANIMATED_LOADER = "./assets/images/loader.svg";
+class PopUp {
+  constructor(modalSelector, closeButtonSelector) {
+    this.$modal = document.querySelector(modalSelector);
+    this.$closeButton = this.$modal.querySelector(closeButtonSelector);
+    this.$image = this.$modal.querySelector("img");
+    this.init();
+  }
+
+  init() {
+    this.$closeButton.addEventListener("click", e => this.closePopUp());
+    this.closePopUp();
+  }
+
+  closePopUp() {
+    this.$modal.style = "display:none";
+  }
+
+  showPopup() {
+    this.$modal.style = "display:flex";
+  }
+
+  loadImage(imageSrc) {
+    this.$image.setAttribute("src", ANIMATED_LOADER);
+    const imageLoader = new Image();
+    imageLoader.src = imageSrc;
+
+    imageLoader.onload = () => this.$image.setAttribute("src", imageLoader.src);
+  }
+
+}
+
+/***/ }),
+
+/***/ "./src/js/Tabs.js":
+/*!************************!*\
+  !*** ./src/js/Tabs.js ***!
+  \************************/
+/*! exports provided: Tabs */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tabs", function() { return Tabs; });
+const defaults = () => ({
+  headingSelector: ".nav-list__item",
+  contentSelector: ".tab",
+  activeClassName: "nav-list__item--active"
+});
+
+class Tabs {
+  constructor({
+    headingSelector,
+    contentSelector,
+    activeClassName
+  } = defaults()) {
+    const {
+      tabHeadElements,
+      tabContentElements
+    } = this.getElements(headingSelector, contentSelector);
+    this.addTabIndex(tabHeadElements);
+    this.attachListeners({
+      tabHeadElements,
+      tabContentElements,
+      activeClassName
+    });
+    this.toggleTabs({
+      tabHeadElements,
+      tabContentElements,
+      activeClassName
+    }, 0);
+  }
+
+  getElements(headingSelector, contentSelector) {
+    const tabHeadElements = [...document.querySelectorAll(headingSelector)];
+    const tabContentElements = [...document.querySelectorAll(contentSelector)];
+    return {
+      tabHeadElements,
+      tabContentElements
+    };
+  }
+
+  addTabIndex(listOfElements) {
+    listOfElements.map((element, index) => element.dataset.tab = index);
+  }
+
+  attachListeners(options) {
+    const {
+      tabHeadElements
+    } = options;
+    tabHeadElements.map(element => element.addEventListener('click', ({
+      currentTarget
+    }) => {
+      const selectedTabIndex = currentTarget.dataset.tab;
+      this.toggleTabs(options, selectedTabIndex);
+    }));
+  }
+
+  toggleTabs({
+    tabHeadElements,
+    tabContentElements,
+    activeClassName
+  }, selectedTabIndex) {
+    tabHeadElements.map(heading => this.makeInactive(heading, activeClassName));
+    this.makeActive(tabHeadElements[selectedTabIndex], activeClassName);
+    tabContentElements.map(tab => this.hide(tab));
+    this.show(tabContentElements[selectedTabIndex]);
+  }
+
+  hide(element) {
+    element.style.display = "none";
+  }
+
+  show(element) {
+    element.style.display = "";
+  }
+
+  makeActive(element, className) {
+    element.classList.add(className);
+  }
+
+  makeInactive(element, className) {
+    element.classList.remove(className);
+  }
+
+}
 
 /***/ }),
 
@@ -129,19 +306,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/index.scss */ \"./src/scss/index.scss\");\n/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_index_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tabs */ \"./src/js/tabs.js\");\n/* harmony import */ var _Gallery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Gallery */ \"./src/js/Gallery.js\");\n\n\n\nconst imageGallery = new _Gallery__WEBPACK_IMPORTED_MODULE_2__[\"Gallery\"](\"gallery-list\");\nimageGallery.loadImages().renderImages().initEventListeners();\n\n//# sourceURL=webpack:///./src/js/index.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/index.scss */ "./src/scss/index.scss");
+/* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_index_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Tabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tabs */ "./src/js/Tabs.js");
+/* harmony import */ var _Gallery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Gallery */ "./src/js/Gallery.js");
 
-/***/ }),
 
-/***/ "./src/js/tabs.js":
-/*!************************!*\
-  !*** ./src/js/tabs.js ***!
-  \************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ \"./src/js/utils.js\");\n\nconst tabLinkSelector = \"nav-list__item\";\nconst tabContentSelector = \"tab\";\nconst links = [...document.getElementsByClassName(tabLinkSelector)];\nconst tabContent = [...document.getElementsByClassName(tabContentSelector)];\nlinks.forEach(link => link.addEventListener(\"click\", function (event) {\n  const tabLinkRootElement = Object(_utils__WEBPACK_IMPORTED_MODULE_0__[\"getRootElement\"])(event.target, tabLinkSelector);\n  const tabClassName = tabLinkRootElement.dataset.tab;\n  const tabLinkActiveClassName = `${tabLinkSelector}--active`;\n  const tabLinkNamedSelector = `${tabLinkSelector}--${tabClassName}`;\n  links.forEach(tabLink => Object(_utils__WEBPACK_IMPORTED_MODULE_0__[\"toggleActiveClass\"])(tabLink, tabLinkNamedSelector, tabLinkActiveClassName));\n  const tabContentActiveClassName = `${tabContentSelector}--active`;\n  tabContent.forEach(tab => Object(_utils__WEBPACK_IMPORTED_MODULE_0__[\"toggleActiveClass\"])(tab, tabClassName, tabContentActiveClassName));\n}));\n\n//# sourceURL=webpack:///./src/js/tabs.js?");
+const tabs = new _Tabs__WEBPACK_IMPORTED_MODULE_1__["Tabs"]();
+const imageGallery = new _Gallery__WEBPACK_IMPORTED_MODULE_2__["Gallery"]("gallery-list");
+imageGallery.loadImages().renderImages().initEventListeners();
 
 /***/ }),
 
@@ -153,7 +328,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _uti
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getRootElement\", function() { return getRootElement; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"toggleActiveClass\", function() { return toggleActiveClass; });\nfunction getRootElement(elem, className) {\n  if (elem == null) return null;else return elem.classList.contains(className) ? elem : getRootElement(elem.parentElement, className);\n}\n\nfunction toggleActiveClass(item, searchClassName, activeClassName) {\n  item.classList.contains(searchClassName) ? item.classList.add(activeClassName) : item.classList.remove(activeClassName);\n}\n\n\n\n//# sourceURL=webpack:///./src/js/utils.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRootElement", function() { return getRootElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleActiveClass", function() { return toggleActiveClass; });
+function getRootElement(elem, className) {
+  if (elem == null) return null;else return elem.classList.contains(className) ? elem : getRootElement(elem.parentElement, className);
+}
+
+function toggleActiveClass(item, searchClassName, activeClassName) {
+  item.classList.contains(searchClassName) ? item.classList.add(activeClassName) : item.classList.remove(activeClassName);
+}
+
+
 
 /***/ }),
 
@@ -164,8 +350,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// removed by extract-text-webpack-plugin\n\n//# sourceURL=webpack:///./src/scss/index.scss?");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=bundle.js.map

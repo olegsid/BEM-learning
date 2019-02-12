@@ -1,24 +1,58 @@
-import { getRootElement, toggleActiveClass } from "./utils";
+const defaults = () => ({
+  headingSelector: ".nav-list__item",
+  contentSelector: ".tab",
+  activeClassName: "nav-list__item--active"
+})
 
-const tabLinkSelector = "nav-list__item";
-const tabContentSelector = "tab";
-const links = [...document.getElementsByClassName(tabLinkSelector)];
-const tabContent = [...document.getElementsByClassName(tabContentSelector)];
 
-links.forEach(link =>
-  link.addEventListener("click", function(event) {
-    const tabLinkRootElement = getRootElement(event.target, tabLinkSelector);
-    const tabClassName = tabLinkRootElement.dataset.tab;
-    const tabLinkActiveClassName = `${tabLinkSelector}--active`;
-    const tabLinkNamedSelector = `${tabLinkSelector}--${tabClassName}`;
+export class Tabs {
+  constructor({ headingSelector, contentSelector, activeClassName} = defaults()) {
+    const { tabHeadElements, tabContentElements } = this.getElements(headingSelector, contentSelector);
+    
+    this.addTabIndex(tabHeadElements);
+    this.attachListeners({ tabHeadElements, tabContentElements, activeClassName});
+    this.toggleTabs({ tabHeadElements, tabContentElements, activeClassName}, 0)
+  }
 
-    links.forEach(tabLink =>
-      toggleActiveClass(tabLink, tabLinkNamedSelector, tabLinkActiveClassName)
-    );
+  getElements(headingSelector, contentSelector) {
+    const tabHeadElements = [...document.querySelectorAll(headingSelector)];
+    const tabContentElements = [...document.querySelectorAll(contentSelector)];
+    return { tabHeadElements, tabContentElements };
+  }
 
-    const tabContentActiveClassName = `${tabContentSelector}--active`;
-    tabContent.forEach(tab =>
-      toggleActiveClass(tab, tabClassName, tabContentActiveClassName)
-    );
-  })
-);
+  addTabIndex(listOfElements) {
+    listOfElements.map((element, index) => element.dataset.tab = index);
+  }
+
+  attachListeners(options) {
+    const { tabHeadElements } = options;
+    tabHeadElements.map(element => element.addEventListener('click', ({currentTarget}) => {
+      const selectedTabIndex = currentTarget.dataset.tab
+      this.toggleTabs(options, selectedTabIndex)
+    }))
+  }
+
+  toggleTabs({ tabHeadElements, tabContentElements, activeClassName }, selectedTabIndex ){
+    tabHeadElements.map(heading => this.makeInactive(heading, activeClassName));
+    this.makeActive(tabHeadElements[selectedTabIndex], activeClassName);
+
+    tabContentElements.map(tab => this.hide(tab));
+    this.show(tabContentElements[selectedTabIndex]);
+  }
+
+  hide(element) {
+    element.style.display = "none";
+  }
+
+  show(element) {
+    element.style.display = "";
+  }
+
+  makeActive(element,className){
+    element.classList.add(className);
+  }
+
+  makeInactive(element, className){
+    element.classList.remove(className);
+  }
+}
