@@ -111,51 +111,74 @@ __webpack_require__.r(__webpack_exports__);
 var _galleryItems__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../galleryItems */ "./src/galleryItems.json", 1);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./src/js/utils.js");
 /* harmony import */ var _Popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Popup */ "./src/js/Popup.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
 
-class Gallery {
-  constructor(galleryClassName) {
+
+var Gallery =
+/*#__PURE__*/
+function () {
+  function Gallery(galleryClassName) {
+    _classCallCheck(this, Gallery);
+
     this.items = [];
     this.$gallery = document.getElementsByClassName(galleryClassName)[0];
     this.$itemTemplate = document.getElementById("galleryItemTemplate");
     this.popUp = new _Popup__WEBPACK_IMPORTED_MODULE_2__["default"](".modal", ".popup__close-button");
   }
 
-  loadImages() {
-    this.items = _galleryItems__WEBPACK_IMPORTED_MODULE_0__.images;
-    return this;
-  }
+  _createClass(Gallery, [{
+    key: "loadImages",
+    value: function loadImages() {
+      this.items = _galleryItems__WEBPACK_IMPORTED_MODULE_0__.images;
+      return this;
+    }
+  }, {
+    key: "renderImages",
+    value: function renderImages() {
+      var _this = this;
 
-  renderImages() {
-    let $galleryItems = document.createDocumentFragment();
-    this.items.forEach((item, index) => {
-      let $item = this.$itemTemplate.cloneNode(true);
-      let $thumb = $item.content.querySelector("img");
-      let $li = $item.content.querySelector("li");
-      $thumb.setAttribute("src", item.thumb);
-      $li.dataset.imageId = index;
-      $li.classList.add("js");
-      $galleryItems.appendChild($item.content);
-    });
-    this.$gallery.appendChild($galleryItems);
-    return this;
-  }
+      var $galleryItems = document.createDocumentFragment();
+      this.items.forEach(function (item, index) {
+        var $item = _this.$itemTemplate.cloneNode(true);
 
-  initEventListeners() {
-    this.$gallery.addEventListener("click", event => {
-      const image = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["getRootElement"])(event.target, "js");
+        var $thumb = $item.content.querySelector("img");
+        var $li = $item.content.querySelector("li");
+        $thumb.setAttribute("src", item.thumb);
+        $li.dataset.imageId = index;
+        $li.classList.add("js");
+        $galleryItems.appendChild($item.content);
+      });
+      this.$gallery.appendChild($galleryItems);
+      return this;
+    }
+  }, {
+    key: "initEventListeners",
+    value: function initEventListeners() {
+      var _this2 = this;
 
-      if (image) {
-        const imageId = image.dataset.imageId;
-        const imageSrc = this.items[imageId].src;
-        this.popUp.loadImage(imageSrc);
-        this.popUp.showPopup();
-      }
-    });
-  }
+      this.$gallery.addEventListener("click", function (event) {
+        var image = Object(_utils__WEBPACK_IMPORTED_MODULE_1__["getRootElement"])(event.target, "js");
 
-}
+        if (image) {
+          var imageId = image.dataset.imageId;
+          var imageSrc = _this2.items[imageId].src;
+
+          _this2.popUp.loadImage(imageSrc);
+
+          _this2.popUp.showPopup();
+        }
+      });
+    }
+  }]);
+
+  return Gallery;
+}();
 
 /***/ }),
 
@@ -169,37 +192,65 @@ class Gallery {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PopUp; });
-const ANIMATED_LOADER = "./assets/images/loader.svg";
-class PopUp {
-  constructor(modalSelector, closeButtonSelector) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var ANIMATED_LOADER = "./assets/images/loader.svg";
+
+var PopUp =
+/*#__PURE__*/
+function () {
+  function PopUp(modalSelector, closeButtonSelector) {
+    _classCallCheck(this, PopUp);
+
     this.$modal = document.querySelector(modalSelector);
     this.$closeButton = this.$modal.querySelector(closeButtonSelector);
     this.$image = this.$modal.querySelector("img");
     this.init();
   }
 
-  init() {
-    this.$closeButton.addEventListener("click", e => this.closePopUp());
-    this.closePopUp();
-  }
+  _createClass(PopUp, [{
+    key: "init",
+    value: function init() {
+      var _this = this;
 
-  closePopUp() {
-    this.$modal.style = "display:none";
-  }
+      this.$closeButton.addEventListener("click", function (e) {
+        return _this.closePopUp();
+      });
+      this.closePopUp();
+    }
+  }, {
+    key: "closePopUp",
+    value: function closePopUp() {
+      this.$modal.style = "display:none";
+    }
+  }, {
+    key: "showPopup",
+    value: function showPopup() {
+      this.$modal.style = "display:flex";
+    }
+  }, {
+    key: "loadImage",
+    value: function loadImage(imageSrc) {
+      var _this2 = this;
 
-  showPopup() {
-    this.$modal.style = "display:flex";
-  }
+      this.$image.setAttribute("src", ANIMATED_LOADER);
+      var imageLoader = new Image();
+      imageLoader.src = imageSrc;
 
-  loadImage(imageSrc) {
-    this.$image.setAttribute("src", ANIMATED_LOADER);
-    const imageLoader = new Image();
-    imageLoader.src = imageSrc;
+      imageLoader.onload = function () {
+        return _this2.$image.setAttribute("src", imageLoader.src);
+      };
+    }
+  }]);
 
-    imageLoader.onload = () => this.$image.setAttribute("src", imageLoader.src);
-  }
+  return PopUp;
+}();
 
-}
+
 
 /***/ }),
 
@@ -213,88 +264,131 @@ class PopUp {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tabs", function() { return Tabs; });
-const defaults = () => ({
-  headingSelector: ".nav-list__item",
-  contentSelector: ".tab",
-  activeClassName: "nav-list__item--active"
-});
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
-class Tabs {
-  constructor({
-    headingSelector,
-    contentSelector,
-    activeClassName
-  } = defaults()) {
-    const {
-      tabHeadElements,
-      tabContentElements
-    } = this.getElements(headingSelector, contentSelector);
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var defaults = function defaults() {
+  return {
+    headingSelector: ".nav-list__item",
+    contentSelector: ".tab",
+    activeClassName: "nav-list__item--active"
+  };
+};
+
+var Tabs =
+/*#__PURE__*/
+function () {
+  function Tabs() {
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaults(),
+        headingSelector = _ref.headingSelector,
+        contentSelector = _ref.contentSelector,
+        activeClassName = _ref.activeClassName;
+
+    _classCallCheck(this, Tabs);
+
+    var _this$getElements = this.getElements(headingSelector, contentSelector),
+        tabHeadElements = _this$getElements.tabHeadElements,
+        tabContentElements = _this$getElements.tabContentElements;
+
     this.addTabIndex(tabHeadElements);
     this.attachListeners({
-      tabHeadElements,
-      tabContentElements,
-      activeClassName
+      tabHeadElements: tabHeadElements,
+      tabContentElements: tabContentElements,
+      activeClassName: activeClassName
     });
     this.toggleTabs({
-      tabHeadElements,
-      tabContentElements,
-      activeClassName
+      tabHeadElements: tabHeadElements,
+      tabContentElements: tabContentElements,
+      activeClassName: activeClassName
     }, 0);
   }
 
-  getElements(headingSelector, contentSelector) {
-    const tabHeadElements = [...document.querySelectorAll(headingSelector)];
-    const tabContentElements = [...document.querySelectorAll(contentSelector)];
-    return {
-      tabHeadElements,
-      tabContentElements
-    };
-  }
+  _createClass(Tabs, [{
+    key: "getElements",
+    value: function getElements(headingSelector, contentSelector) {
+      var tabHeadElements = _toConsumableArray(document.querySelectorAll(headingSelector));
 
-  addTabIndex(listOfElements) {
-    listOfElements.map((element, index) => element.dataset.tab = index);
-  }
+      var tabContentElements = _toConsumableArray(document.querySelectorAll(contentSelector));
 
-  attachListeners(options) {
-    const {
-      tabHeadElements
-    } = options;
-    tabHeadElements.map(element => element.addEventListener('click', ({
-      currentTarget
-    }) => {
-      const selectedTabIndex = currentTarget.dataset.tab;
-      this.toggleTabs(options, selectedTabIndex);
-    }));
-  }
+      return {
+        tabHeadElements: tabHeadElements,
+        tabContentElements: tabContentElements
+      };
+    }
+  }, {
+    key: "addTabIndex",
+    value: function addTabIndex(listOfElements) {
+      listOfElements.map(function (element, index) {
+        return element.dataset.tab = index;
+      });
+    }
+  }, {
+    key: "attachListeners",
+    value: function attachListeners(options) {
+      var _this = this;
 
-  toggleTabs({
-    tabHeadElements,
-    tabContentElements,
-    activeClassName
-  }, selectedTabIndex) {
-    tabHeadElements.map(heading => this.makeInactive(heading, activeClassName));
-    this.makeActive(tabHeadElements[selectedTabIndex], activeClassName);
-    tabContentElements.map(tab => this.hide(tab));
-    this.show(tabContentElements[selectedTabIndex]);
-  }
+      var tabHeadElements = options.tabHeadElements;
+      tabHeadElements.map(function (element) {
+        return element.addEventListener('click', function (_ref2) {
+          var currentTarget = _ref2.currentTarget;
+          var selectedTabIndex = currentTarget.dataset.tab;
 
-  hide(element) {
-    element.style.display = "none";
-  }
+          _this.toggleTabs(options, selectedTabIndex);
+        });
+      });
+    }
+  }, {
+    key: "toggleTabs",
+    value: function toggleTabs(_ref3, selectedTabIndex) {
+      var _this2 = this;
 
-  show(element) {
-    element.style.display = "";
-  }
+      var tabHeadElements = _ref3.tabHeadElements,
+          tabContentElements = _ref3.tabContentElements,
+          activeClassName = _ref3.activeClassName;
+      tabHeadElements.map(function (heading) {
+        return _this2.makeInactive(heading, activeClassName);
+      });
+      this.makeActive(tabHeadElements[selectedTabIndex], activeClassName);
+      tabContentElements.map(function (tab) {
+        return _this2.hide(tab);
+      });
+      this.show(tabContentElements[selectedTabIndex]);
+    }
+  }, {
+    key: "hide",
+    value: function hide(element) {
+      element.style.display = "none";
+    }
+  }, {
+    key: "show",
+    value: function show(element) {
+      element.style.display = "";
+    }
+  }, {
+    key: "makeActive",
+    value: function makeActive(element, className) {
+      element.classList.add(className);
+    }
+  }, {
+    key: "makeInactive",
+    value: function makeInactive(element, className) {
+      element.classList.remove(className);
+    }
+  }]);
 
-  makeActive(element, className) {
-    element.classList.add(className);
-  }
-
-  makeInactive(element, className) {
-    element.classList.remove(className);
-  }
-
-}
+  return Tabs;
+}();
 
 /***/ }),
 
@@ -314,8 +408,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const tabs = new _Tabs__WEBPACK_IMPORTED_MODULE_1__["Tabs"]();
-const imageGallery = new _Gallery__WEBPACK_IMPORTED_MODULE_2__["Gallery"]("gallery-list");
+var tabs = new _Tabs__WEBPACK_IMPORTED_MODULE_1__["Tabs"]();
+var imageGallery = new _Gallery__WEBPACK_IMPORTED_MODULE_2__["Gallery"]("gallery-list");
 imageGallery.loadImages().renderImages().initEventListeners();
 
 /***/ }),
