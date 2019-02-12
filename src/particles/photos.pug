@@ -1,0 +1,16 @@
+- const element = "filters-list__item"
+- const modifiersList = ["all","architecture","images","nature", "photography","videos"]
+- const selectedModifier = "selected"
+- const selectedIndex = 0
+
+section(class="user-photos photos tab")
+  div(class="content-wrapper user-photos__content-wrapper")
+    ul(class="filters-list styled-container user-photos__filters-list")
+      li(class="filters-list__caption") Show me:
+      - for(let i = 0; i < modifiersList.length; i++){
+        - let status = (selectedIndex == i) ? `${element}--${selectedModifier}`:''
+        - let name = modifiersList[i]
+          li(class=`${element} ${element}--${name} ${status}`) #{name[0].toUpperCase() + name.substring(1)}
+      - }
+    div(class="user-photos__gallery styled-container")
+      ul(class="gallery-list")
