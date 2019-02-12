@@ -69,7 +69,11 @@ module.exports = {
               indent_with_tabs: true,
               indent_inner_html: true,
               preserve_newlines: true,
-              unformatted: ['p', 'i', 'b']
+              inline: ['i', 'b'],
+              unformatted: ['i', 'b'],
+              wrap_line_length: 120,
+              indent_inner_html: true,
+              indent_scripts: "separate"
           }
       },
       replace: [ ' type="text/javascript"' ]
