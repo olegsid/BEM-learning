@@ -38,9 +38,17 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf)$/,
+        test: /\.(woff|woff2|eot|ttf)$/,
         loader: "url-loader?limit=100000"
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ]
   },
   plugins: [
@@ -49,7 +57,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.pug",
-      filename: "index.html",
+      filename: "../index.html",
       minify: false
     })
   ]
