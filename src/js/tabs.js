@@ -7,37 +7,37 @@ const defaults = () => ({
 
 export class Tabs {
   constructor({ headingSelector, contentSelector, activeClassName} = defaults()) {
-    const { tabHeadElements, tabContentElements } = this.getElements(headingSelector, contentSelector);
+    const { headElements, contentElements } = this.getElements(headingSelector, contentSelector);
     
-    this.addTabIndex(tabHeadElements);
-    this.attachListeners({ tabHeadElements, tabContentElements, activeClassName});
-    this.toggleTabs({ tabHeadElements, tabContentElements, activeClassName}, 0)
+    this.addIndexToTab(headElements);
+    this.attachListeners({ headElements, contentElements, activeClassName});
+    this.switchTabs({ headElements, contentElements, activeClassName}, 0)
   }
 
   getElements(headingSelector, contentSelector) {
-    const tabHeadElements = [...document.querySelectorAll(headingSelector)];
-    const tabContentElements = [...document.querySelectorAll(contentSelector)];
-    return { tabHeadElements, tabContentElements };
+    const headElements = [...document.querySelectorAll(headingSelector)];
+    const contentElements = [...document.querySelectorAll(contentSelector)];
+    return { headElements, contentElements };
   }
 
-  addTabIndex(listOfElements) {
+  addIndexToTab(listOfElements) {
     listOfElements.map((element, index) => element.dataset.tab = index);
   }
 
   attachListeners(options) {
-    const { tabHeadElements } = options;
-    tabHeadElements.map(element => element.addEventListener('click', ({currentTarget}) => {
+    const { headElements } = options;
+    headElements.map(element => element.addEventListener('click', ({currentTarget}) => {
       const selectedTabIndex = currentTarget.dataset.tab
-      this.toggleTabs(options, selectedTabIndex)
+      this.switchTabs(options, selectedTabIndex)
     }))
   }
 
-  toggleTabs({ tabHeadElements, tabContentElements, activeClassName }, selectedTabIndex ){
-    tabHeadElements.map(heading => this.makeInactive(heading, activeClassName));
-    this.makeActive(tabHeadElements[selectedTabIndex], activeClassName);
+  switchTabs({ headElements, contentElements, activeClassName }, selectedTabIndex ){
+    headElements.map(heading => this.makeInactive(heading, activeClassName));
+    this.makeActive(headElements[selectedTabIndex], activeClassName);
 
-    tabContentElements.map(tab => this.hide(tab));
-    this.show(tabContentElements[selectedTabIndex]);
+    contentElements.map(tab => this.hide(tab));
+    this.show(contentElements[selectedTabIndex]);
   }
 
   hide(element) {

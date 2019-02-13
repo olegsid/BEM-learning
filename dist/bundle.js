@@ -298,18 +298,18 @@ function () {
     _classCallCheck(this, Tabs);
 
     var _this$getElements = this.getElements(headingSelector, contentSelector),
-        tabHeadElements = _this$getElements.tabHeadElements,
-        tabContentElements = _this$getElements.tabContentElements;
+        headElements = _this$getElements.headElements,
+        contentElements = _this$getElements.contentElements;
 
-    this.addTabIndex(tabHeadElements);
+    this.addIndexToTab(headElements);
     this.attachListeners({
-      tabHeadElements: tabHeadElements,
-      tabContentElements: tabContentElements,
+      headElements: headElements,
+      contentElements: contentElements,
       activeClassName: activeClassName
     });
-    this.toggleTabs({
-      tabHeadElements: tabHeadElements,
-      tabContentElements: tabContentElements,
+    this.switchTabs({
+      headElements: headElements,
+      contentElements: contentElements,
       activeClassName: activeClassName
     }, 0);
   }
@@ -317,18 +317,18 @@ function () {
   _createClass(Tabs, [{
     key: "getElements",
     value: function getElements(headingSelector, contentSelector) {
-      var tabHeadElements = _toConsumableArray(document.querySelectorAll(headingSelector));
+      var headElements = _toConsumableArray(document.querySelectorAll(headingSelector));
 
-      var tabContentElements = _toConsumableArray(document.querySelectorAll(contentSelector));
+      var contentElements = _toConsumableArray(document.querySelectorAll(contentSelector));
 
       return {
-        tabHeadElements: tabHeadElements,
-        tabContentElements: tabContentElements
+        headElements: headElements,
+        contentElements: contentElements
       };
     }
   }, {
-    key: "addTabIndex",
-    value: function addTabIndex(listOfElements) {
+    key: "addIndexToTab",
+    value: function addIndexToTab(listOfElements) {
       listOfElements.map(function (element, index) {
         return element.dataset.tab = index;
       });
@@ -338,32 +338,32 @@ function () {
     value: function attachListeners(options) {
       var _this = this;
 
-      var tabHeadElements = options.tabHeadElements;
-      tabHeadElements.map(function (element) {
+      var headElements = options.headElements;
+      headElements.map(function (element) {
         return element.addEventListener('click', function (_ref2) {
           var currentTarget = _ref2.currentTarget;
           var selectedTabIndex = currentTarget.dataset.tab;
 
-          _this.toggleTabs(options, selectedTabIndex);
+          _this.switchTabs(options, selectedTabIndex);
         });
       });
     }
   }, {
-    key: "toggleTabs",
-    value: function toggleTabs(_ref3, selectedTabIndex) {
+    key: "switchTabs",
+    value: function switchTabs(_ref3, selectedTabIndex) {
       var _this2 = this;
 
-      var tabHeadElements = _ref3.tabHeadElements,
-          tabContentElements = _ref3.tabContentElements,
+      var headElements = _ref3.headElements,
+          contentElements = _ref3.contentElements,
           activeClassName = _ref3.activeClassName;
-      tabHeadElements.map(function (heading) {
+      headElements.map(function (heading) {
         return _this2.makeInactive(heading, activeClassName);
       });
-      this.makeActive(tabHeadElements[selectedTabIndex], activeClassName);
-      tabContentElements.map(function (tab) {
+      this.makeActive(headElements[selectedTabIndex], activeClassName);
+      contentElements.map(function (tab) {
         return _this2.hide(tab);
       });
-      this.show(tabContentElements[selectedTabIndex]);
+      this.show(contentElements[selectedTabIndex]);
     }
   }, {
     key: "hide",
