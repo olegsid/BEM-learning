@@ -1,6 +1,6 @@
 {
   "name": "viseven-entry-exam-task-2018",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Viseven academy entry task 2018",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
