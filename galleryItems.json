@@ -2,7 +2,7 @@
   "images": [
     {
       "thumb": "./assets/images/gallery/thumb.jpg",
-      "src": "./assets/images/gallery/thumb.jpg",
+      "src": "./assets/images/gallery/big.jpg",
       "tags": []
     },
     {
