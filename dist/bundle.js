@@ -11396,20 +11396,21 @@ function () {
     }
   }, {
     key: "switchTabs",
-    value: function switchTabs(_ref3, selectedTabIndex) {
+    value: function switchTabs(_ref3, tabIndex) {
       var _this2 = this;
 
       var headElements = _ref3.headElements,
           contentElements = _ref3.contentElements,
           activeClassName = _ref3.activeClassName;
+      this.preserveElementHeight(contentElements, tabIndex);
       headElements.map(function (heading) {
         return _this2.makeInactive(heading, activeClassName);
       });
-      this.makeActive(headElements[selectedTabIndex], activeClassName);
+      this.makeActive(headElements[tabIndex], activeClassName);
       contentElements.map(function (tab) {
         return _this2.hide(tab);
       });
-      this.show(contentElements[selectedTabIndex]);
+      this.show(contentElements[tabIndex]);
     }
   }, {
     key: "hide",
@@ -11430,6 +11431,22 @@ function () {
     key: "makeInactive",
     value: function makeInactive(element, className) {
       element.classList.remove(className);
+    }
+  }, {
+    key: "preserveElementHeight",
+    value: function preserveElementHeight(contentElements, index) {
+      var minHeight = this.geActiveContentHeight(contentElements);
+      var newActiveContentElement = contentElements[index];
+      newActiveContentElement.style.minHeight = minHeight + "px";
+    }
+  }, {
+    key: "geActiveContentHeight",
+    value: function geActiveContentHeight(contentElements) {
+      var tab = contentElements.find(function (el) {
+        return el.style.display !== "none";
+      });
+      var tabHeight = tab.getBoundingClientRect().height;
+      return tabHeight;
     }
   }]);
 

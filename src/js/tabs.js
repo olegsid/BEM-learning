@@ -12,6 +12,7 @@ export class Tabs {
     this.addIndexToTab(headElements);
     this.attachListeners({ headElements, contentElements, activeClassName});
     this.switchTabs({ headElements, contentElements, activeClassName}, 0)
+    
   }
 
   getElements(headingSelector, contentSelector) {
@@ -32,12 +33,14 @@ export class Tabs {
     }))
   }
 
-  switchTabs({ headElements, contentElements, activeClassName }, selectedTabIndex ){
-    headElements.map(heading => this.makeInactive(heading, activeClassName));
-    this.makeActive(headElements[selectedTabIndex], activeClassName);
+  switchTabs({ headElements, contentElements, activeClassName }, tabIndex ){
+    this.preserveElementHeight(contentElements,tabIndex);
 
+    headElements.map(heading => this.makeInactive(heading, activeClassName));
+    this.makeActive(headElements[tabIndex], activeClassName);
     contentElements.map(tab => this.hide(tab));
-    this.show(contentElements[selectedTabIndex]);
+    this.show(contentElements[tabIndex]);
+    
   }
 
   hide(element) {
@@ -54,5 +57,16 @@ export class Tabs {
 
   makeInactive(element, className){
     element.classList.remove(className);
+  }
+  preserveElementHeight(contentElements,index){
+    const minHeight = this.geActiveContentHeight(contentElements);
+    const newActiveContentElement = contentElements[index];
+    newActiveContentElement.style.minHeight = minHeight +"px";
+  }
+
+  geActiveContentHeight(contentElements){
+    const tab = contentElements.find(el => el.style.display !== "none")
+    const tabHeight = tab.getBoundingClientRect().height;
+    return tabHeight
   }
 }
