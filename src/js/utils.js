@@ -1,9 +1,9 @@
-function getRootElement(elem, className) {
+function getClosestByClassName(elem, className) {
   if (elem == null) return null;
   else
     return elem.classList.contains(className)
       ? elem
-      : getRootElement(elem.parentElement, className);
+      : getClosestByClassName(elem.parentElement, className);
 }
 
 function toggleActiveClass(item, searchClassName, activeClassName) {
@@ -12,4 +12,4 @@ function toggleActiveClass(item, searchClassName, activeClassName) {
     : item.classList.remove(activeClassName);
 }
 
-export { getRootElement, toggleActiveClass };
+export { getClosestByClassName, toggleActiveClass };
