@@ -1,11 +1,11 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
+const HtmlBeautifyPlugin = require("html-beautify-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: "./src/js/index.js"
+    main: ["babel-polyfill", "./src/js/index.js"]
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -24,7 +24,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env']
+            presets: ["@babel/preset-env"]
           }
         }
       },
