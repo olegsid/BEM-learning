@@ -241,7 +241,8 @@ body {
   line-height: 14px;
   color: #5fc0e7; }
   .button--action {
-    position: relative; }
+    position: relative;
+    cursor: pointer; }
   .button--action::before {
     content: "";
     display: inline-block;
