@@ -6,4 +6,4 @@ import { fetchImages } from "./api";
 const tabs = new Tabs();
 const gallery = new Gallery("gallery-list");
 
-fetchImages("./src/galleryItems.json").then(data => gallery.init(data.images));
+fetchImages("./galleryItems.json").then(data => gallery.init(data.images));

@@ -11512,7 +11512,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var tabs = new _Tabs__WEBPACK_IMPORTED_MODULE_1__["Tabs"]();
 var gallery = new _Gallery__WEBPACK_IMPORTED_MODULE_2__["Gallery"]("gallery-list");
-Object(_api__WEBPACK_IMPORTED_MODULE_3__["fetchImages"])("./src/galleryItems.json").then(function (data) {
+Object(_api__WEBPACK_IMPORTED_MODULE_3__["fetchImages"])("./galleryItems.json").then(function (data) {
   return gallery.init(data.images);
 });
 
