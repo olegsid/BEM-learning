@@ -11,6 +11,7 @@
   "author": "Oleg Shevchuk",
   "license": "ISC",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "bemto.pug": "^2.1.0",
     "html-beautify-webpack-plugin": "^1.0.5",
     "pug": "^2.0.3",
